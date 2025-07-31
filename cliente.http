@@ -1,0 +1,78 @@
+@baseUrl = http://localhost:9000
+@authToken = {{loginADIMIN.response.body.token}}
+
+
+
+# ==========================
+# 🚀 ADMIN
+# ==========================
+
+# @name Cadastrouser
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "FullName": "Ingred On",
+    "Email": "ingred@api.com",
+    "Password": "1234",
+    "Role": "admin"
+ 
+}
+
+###
+# @name loginADIMIN
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "Email": "ingred@api.com",
+    "Password": "1234"
+}
+
+###
+GET {{baseUrl}}/check
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
+# ==========================
+# 🚀 FILMES
+###
+# @name CadastroFilmes
+POST {{baseUrl}}/filmes
+Content-Type: application/json
+
+[{ "id" :49,
+  "titulo": "Parasidtaf",
+  "genero": "Dorama",
+  "favorito": true
+}]
+###
+# @name MostratosdosFilmes
+GET {{baseUrl}}
+Content-Type: application/json
+
+
+###
+# @name filmesFavoritos
+GET {{baseUrl}}/favoritos
+Content-Type: application/json
+
+###
+# @name filmesDoGeneroDrama
+GET {{baseUrl}}/drama
+Content-Type: application/json
+###
+
+###
+# @name analiseTotais
+GET {{baseUrl}}/totais
+Content-Type: application/json
+###
+# @name AtualizarFilmepartefAVORITO
+PATCH {{baseUrl}}/6
+Content-Type: application/json
+
+{
+  "favorito": true
+}
