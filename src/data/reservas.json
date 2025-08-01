@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "salaNome": "aulas de Inglês",
+    "disponivel": true,
+    "data": null
+  },
+  {
+    "id": 2,
+    "salaNome": "aulas de Javascript",
+    "disponivel": true,
+    "data": null
+  },
+  {
+    "id": 3,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 4,
+    "salaNome": "aulas de Cinema",
+    "disponivel": true,
+    "data": null
+  },
+  {
+    "id": 503,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 503,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 503,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 503,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 5043,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": ""
+  },
+  {
+    "id": 50553,
+    "salaNome": "aulas de SoftSkils",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+  },
+  {
+    "id": 50553,
+    "salaNome": "aulas de matemática",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+  },
+  {
+    "id": 60553,
+    "salaNome": "aulas de matemática",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+  },
+  {
+    "id": 70553,
+    "salaNome": "aulas de matemática",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+  },
+  {
+    "id": 70553,
+    "salaNome": "aulas de matemática",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+  }
+]

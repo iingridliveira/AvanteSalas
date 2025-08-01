@@ -22,8 +22,8 @@ function salvarFilmes(Filmes) {
   fs.writeFileSync(filePath, JSON.stringify(Filmes, null, 2), "utf-8");
 }
 filmesRouter.post("/filmes", (req, res) => {
-  
-  const novosFilmes = req.body;
+  const id =  {id:crypto.randomUUID()}
+  const novosFilmes =  (id + req.body);
   filmes.push(...novosFilmes);
   salvarFilmes(filmes);
   res.status(201).json({

@@ -21,41 +21,45 @@ function lerUsuarios() {
   return JSON.parse(data);
 }
 
+function userAuth(req, res){
+    const auth = req.headers["authorization"];
+    const token = auth && auth.split(" ")[1];
+
+    if (!token) {
+      return res.status(401).json({ mensagem: "Token não enviado" });
+
+    }else{
+      return token
+    }
+    
+}
 // Rota de login (gera o token se nome e senha estiverem certos)
-authRoutes.post("/login", (req, res) => {
-  const { Email, Password } = req.body;
+authRoutes.post('/login', (req, res) => {
+  const { nome, senha } = req.body;
   const usuarios = lerUsuarios();
 
-  const usuario = usuarios.find(
-    (u) => u.Email === Email && u.Password === Password
-  );
+  const usuario = usuarios.find(u => u.nome === nome && u.senha === senha);
 
   if (!usuario) {
-    return res.status(401).json({ mensagem: "Usuário ou senha incorretos" });
+    return res.status(401).json({ mensagem: 'Usuário ou senha incorretos' });
   }
 
-  const token = jwt.sign(
-    { nome: usuario.nome, perfil: usuario.perfil },
-    SEGREDO
-  );
+  const token = jwt.sign({ nome: usuario.nome, perfil: usuario.perfil }, SEGREDO);
   res.json({ token });
 });
 
 // Rota que verifica o token (retorna os dados do usuário autenticado)
-authRoutes.get("/check", (req, res) => {
-  const auth = req.headers["authorization"];
-  const token = auth && auth.split(" ")[1];
-
-  if (!token) {
-    return res.status(401).json({ mensagem: "Token não enviado" });
-  }
+authRoutes.get('/check', (req, res) => {
+ 
 
   try {
-    const dados = jwt.verify(token, SEGREDO);
-    res.json({ mensagem: "Token válido", usuario: dados });
+    const dados = jwt.verify(userAuth(req, res), SEGREDO);
+    res.json({ mensagem: 'Token válido', usuario: dados });
   } catch (err) {
-    res.status(403).json({ mensagem: "Token inválido" });
+    res.status(403).json({ mensagem: 'Token inválido' });
   }
 });
 
-export { authRoutes };
+// Inicia o servidor
+
+export { authRoutes, userAuth };

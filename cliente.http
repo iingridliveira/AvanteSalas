@@ -12,9 +12,8 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-    "FullName": "Ingred On",
-    "Email": "ingred@api.com",
-    "Password": "1234",
+    "nome": "Ingred",
+    "senha": "1234",
     "Role": "admin"
  
 }
@@ -25,15 +24,44 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "Email": "ingred@api.com",
-    "Password": "1234"
+  "nome": "Ingred",
+   "senha": "1234"
+
+
 }
+
+
 
 ###
 GET {{baseUrl}}/check
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
+# ==========================
+# 🚀 Reservas
+###
+# @name mostrarSalasabertas
+GET {{baseUrl}}/salas
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+###
+# @name mostrarSalasADM
+GET {{baseUrl}}/reservas
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+# @name CadastroReservas
+POST {{baseUrl}}/reservar
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+[{ 
+    "id": 70553,
+    "salaNome": "aulas de matemática",
+    "disponivel": false,
+    "data": "aaa/aaa/aa"
+}]
 
 # ==========================
 # 🚀 FILMES
@@ -42,8 +70,8 @@ Authorization: Bearer {{authToken}}
 POST {{baseUrl}}/filmes
 Content-Type: application/json
 
-[{ "id" :49,
-  "titulo": "Parasidtaf",
+[{ 
+  "titulo": "Parasggidtaf",
   "genero": "Dorama",
   "favorito": true
 }]

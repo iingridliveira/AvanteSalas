@@ -1,17 +1,12 @@
 [
   {
-    "FullName": "Ingred On",
-    "Email": "ingred@api.com",
-    "Password": "1234"
+    "nome": "Ingred On",
+    "senha": "1234",
+    "Role": "admin"
   },
   {
-    "FullName": "Ingred On",
-    "Email": "ingred@api.com",
-    "Password": "1234"
-  },
-  {
-    "FullName": "Ingred On",
-    "Email": "ingred@api.com",
-    "Password": "1234"
+    "nome": "Ingred",
+    "senha": "1234",
+    "Role": "admin"
   }
 ]

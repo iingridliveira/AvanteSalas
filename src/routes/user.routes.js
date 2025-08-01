@@ -31,7 +31,7 @@ userRoutes.get("/", (req, res) => {
 // POST (adicionar um novo usuário)
 userRoutes.post("/", (req, res) => {
     const usuarios = lerUsuarios();
-    const usuario = req.body;
+    const usuario =  req.body;
     usuarios.push(usuario);
     salvarUsuarios(usuarios);
     res.send("Usuário adicionado com sucesso!");
