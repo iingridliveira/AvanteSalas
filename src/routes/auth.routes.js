@@ -21,14 +21,17 @@ function lerUsuarios() {
   return JSON.parse(data);
 }
 function userAuth(req, res) {
+  try{
   const auth = req.headers["authorization"];
   const token = auth && auth.split(" ")[1];
-  console.log(auth);
+  //console.log(auth);
 
   if (!token) {
     return res.status(401).json({ mensagem: "Token não enviado" });
   } else {
     return token;
+  }} catch (err) {
+    return res.status(401).json({ mensagem: "Token inválido" });
   }
 }
 
@@ -43,7 +46,7 @@ function admAuth(req, res) {
 
   try {
     const decoded = jwt.verify(token, SEGREDO);
-    console.log(decoded);
+   // console.log(decoded);
     if (decoded.Role === "admin") {
       // Token is valid and has admin role
       return token;
