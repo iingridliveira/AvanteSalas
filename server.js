@@ -5,7 +5,7 @@ import { authRoutes } from "./src/routes/auth.routes.js";
 import { resevaRoutes } from "./src/routes/reservas.routes.js";
 
 const app = express();
-const PORT = 9000;
+const PORT = 5000;
 app.use(express.json());
 app.use("/", filmesRouter);
 app.use("/user", userRoutes);

@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import fs from "fs";
 import path from "path";
-import { userAuth } from "./auth.routes.js";
+import { userAuth, admAuth } from "./auth.routes.js";
 
 const resevaRoutes = Router();
 
@@ -24,12 +24,18 @@ function lerReserva() {
 function salvarReservas(Reservas) {
   fs.writeFileSync(filePath, JSON.stringify(Reservas, null, 2), "utf-8");
 }
+
 const Reservas = lerReserva();
+
 resevaRoutes.get("/reservas", (req, res) => {
   try {
-    const dados = jwt.verify(userAuth(req, res), SEGREDO);
+    const token = admAuth(req, res);
+    if (!token) {
+      return;
+    }
 
-   
+    const dados = jwt.verify(token, SEGREDO);
+
     res.json({ mensagem: "Token válido", usuario: dados, Reservas });
   } catch (err) {
     res.status(403).json({ mensagem: "Token inválido" });

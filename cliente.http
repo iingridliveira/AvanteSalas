@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:9000
+@baseUrl = http://localhost:5000
 @authToken = {{loginADIMIN.response.body.token}}
 
 
@@ -12,9 +12,9 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-    "nome": "Ingred",
-    "senha": "1234",
-    "Role": "admin"
+    "nome": "IngredOliveira",
+    "senha": "12346",
+    "Role": "user"
  
 }
 
@@ -24,8 +24,8 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-  "nome": "Ingred",
-   "senha": "1234"
+     "nome": "Ingred",
+    "senha": "1234"
 
 
 }
@@ -57,7 +57,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 [{ 
-    "id": 70553,
+    "id": 53,
     "salaNome": "aulas de matemática",
     "disponivel": false,
     "data": "aaa/aaa/aa"
